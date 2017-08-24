@@ -13,10 +13,11 @@ else:
 	 
 
 for filename in os.listdir(path):
-	print filename
+	print "Reducing size of " + filename
 	basewidth = 1024
 	img = Image.open(path + "/" + filename)
 	wpercent = (basewidth/float(img.size[0]))
 	hsize = int((float(img.size[1])*float(wpercent)))
 	img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 	img.save(outpath + "/" + filename)
+	print "Successfully converted"
